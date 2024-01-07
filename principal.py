@@ -49,3 +49,7 @@ def main():
 if __name__ == "__main__":
     main()
 
+
+
+# verificar se a memória está funcionando
+# criar uma variável q serve de controle para em qual linha de comando estamos
