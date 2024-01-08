@@ -1,7 +1,9 @@
 
+
 class Operacoes():
     def __init__(self):
         True
+
 
     # não entendi o que o staticmethod faz direito, mas as funções não funcionam sem
     @staticmethod
@@ -25,7 +27,42 @@ class Operacoes():
         sub = bin(A - B)[2:].zfill(8)
         return sub
     
+    @staticmethod
+    def mult(A, B):
+        # converte os binários em inteiros
+        A = int(A, 2)
+        B = int(B, 2)
+
+        mult = bin(A*B)[2:].zfill(8)
+        return mult
     
+    @staticmethod
+    def div(A, B):
+        # converte os binários em inteiros
+        A = int(A, 2)
+        B = int(B, 2)
+
+        div = bin(A/B)[2:].zfill(8)
+        return div
+    
+    @staticmethod
+    def jpie(A, B):
+        # converte os binários em inteiros
+        A = int(A, 2)
+        B = int(B, 2)
+
+        if(A == B): return True
+        else: return False
+
+    @staticmethod
+    def jpig(A, B):
+        # converte os binários em inteiros
+        A = int(A, 2)
+        B = int(B, 2)
+
+        if(A > B): return True
+        else: return False
+
 
     #definir demais funções dentro dessa Classe
     

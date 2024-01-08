@@ -2,6 +2,7 @@
 class Registradores():
     def __init__(self):
         self.reg = {
+            0: "00000000",
             1: "00000000",
             2: "00000000",
             3: "00000000",
@@ -16,12 +17,11 @@ class Registradores():
             12: "00000000",
             13: "00000000",
             14: "00000000",
-            15: "00000000",
-            16: "00000000"
+            15: "00000000"
         }
 
 class Memoria():
     def __init__(self):
         self.mem = {}
-        for i in range(1, 10001):
-            self.mem[i] = f'{i:08d}'
+        for i in range(0, 10000):
+            self.mem[i] = "00000000"
