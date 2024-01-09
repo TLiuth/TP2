@@ -50,7 +50,6 @@ class Operacoes():
         # converte os binários em inteiros
         A = int(A, 2)
         B = int(B, 2)
-
         if(A == B): return True
         else: return False
 

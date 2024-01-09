@@ -17,11 +17,11 @@ def display(reg, mem, comandos, linha_de_comando):
         print(f"| {i:2} | {reg[i]} | ( {int(reg[i], 2)} )")
     print("+-----------------+")
 
-    print("\n+-----------------+")
-    print("|     MEMÓRIA     |")
-    print("+-----------------+")
-    for i in range(0, 10):
-        print(f"| {i:2} | {mem[i]} | ( {int(mem[i], 2)} )")
+    # print("\n+-----------------+")
+    # print("|     MEMÓRIA     |")
+    # print("+-----------------+")
+    # for i in range(0, 10):
+    #     print(f"| {i:2} | {mem[i]} | ( {int(mem[i], 2)} )")
     print("+-----------------+")
 
     print("\n+-----------------+")
@@ -92,7 +92,7 @@ def main():
 
     comando = "00000000"
 
-    while linha_de_comando < len(comandos) - 1:
+    while linha_de_comando < len(comandos):
         comando, adress1, adress2, adress3 = separador_de_bytes(comandos[linha_de_comando])
         display(reg, mem, comandos, linha_de_comando)
         match comando:
@@ -136,8 +136,8 @@ def main():
             case "JUMP":
                 linha_de_comando = int(adress1, 2)
             case "JPIE":
-                B = reg[int(adress1, 2)]
-                if(operador.jpie(holder, B)):
+                A, B = fetch_data(adress1, adress2)
+                if(operador.jpie(A, B)):
                     linha_de_comando = int(adress3, 2)
                 else:
                     linha_de_comando += 1
@@ -145,8 +145,8 @@ def main():
                 print(f"Valor armazenado no endereço {int(adress1, 2)} : {reg[int(adress1, 2)]} = ({int(reg[int(adress1, 2)], 2)})")
                 linha_de_comando += 1
             case "JPIG":
-                B = reg[int(adress1, 2)]
-                if(operador.jpig(holder, B)):
+                A, B = fetch_data(adress1, adress2)
+                if(operador.jpig(A, B)):
                     linha_de_comando = int(adress3, 2)
                 else:
                     linha_de_comando += 1
@@ -158,6 +158,7 @@ def main():
                 print(f"Invalid command: {comando}")
                 linha_de_comando += 1
         
+        step = input('')
 
 
 
