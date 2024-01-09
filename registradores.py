@@ -1,4 +1,5 @@
 
+#simula a memória de registradores (um dicionário com chaves de 0 a 15, inicialmente completos com bytes 0)
 class Registradores():
     def __init__(self):
         self.reg = {
@@ -20,6 +21,7 @@ class Registradores():
             15: "00000000"
         }
 
+# Simula a memória principal. 10001 espaços de memória, simulado por um dicionário com chaves de 0 a 10000, preenhcidos com bytes 0
 class Memoria():
     def __init__(self):
         self.mem = {}

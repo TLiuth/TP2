@@ -61,7 +61,3 @@ class Operacoes():
 
         if(A > B): return True
         else: return False
-
-
-    #definir demais funções dentro dessa Classe
-    

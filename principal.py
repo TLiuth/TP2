@@ -1,8 +1,11 @@
 from registradores import Registradores, Memoria
 from operacoes import Operacoes
 
+# faz uma instância da classe Memória. Em seguida, atribui o dicionário contido nessa classe para uma nova variável
 memoria = Memoria()
 mem = memoria.mem
+
+# faz uma instância da classe Registradores. Em seguida, atribui o dicionário contido nessa classe para uma nova variável
 reg = Registradores().reg
 
 
@@ -34,7 +37,7 @@ def display(reg, mem, comandos, linha_de_comando):
     print(f"\nCurrent command line: {linha_de_comando}")
 
 
-# Busca os dados no endereço definido
+# Busca os dados no endereço definido (pega cada string armazenada nos endereços do registrador)
 def fetch_data(adress1, adress2):
         
         A = reg[int(adress1, 2)]
@@ -74,7 +77,7 @@ def le_comandos(file_path):
     return comandos
 
 
-
+# Função principal, que executa o script
 def main():
 
 
@@ -84,9 +87,13 @@ def main():
         comandos = le_comandos('comandos.txt')
     elif op == "2":
         comandos = le_comandos('comandos2.txt')
+
+    #define o início da linha de comando como 0 (é o que controla qual comando será executado em cada ciclo. Pode ser alterado por algumas das funções de fluxo)
     linha_de_comando = 0
 
+    # uma instância da classe operações, que contém as funções de operações
     operador = Operacoes()
+    # armazenamento temporário que armazena o resultado de operações
     holder = 0
 
     # Imprime o status inicial da memória
@@ -94,11 +101,13 @@ def main():
     comando = "00000000"
 
     while linha_de_comando < len(comandos):
+        # separa cada linha de comando em suas quatro partes
         comando, adress1, adress2, adress3 = separador_de_bytes(comandos[linha_de_comando])
+        # imprime o status atual de cada registrador e das dez primeiras posições da memória
         display(reg, mem, comandos, linha_de_comando)
         match comando:
 
-            # Memória
+            # Operações de manipulação de Memória
             case "STME":
                 mem[int(reg[int(adress3, 2)], 2)] = reg[int(adress1, 2)]
                 linha_de_comando += 1
@@ -115,7 +124,7 @@ def main():
                 reg[int(adress1, 2)] =  mem[int(reg[int(adress3, 2)], 2)]
                 linha_de_comando += 1
 
-            # Aritméticos
+            # Operações Aritméticas
             case "ADD_":
                 A, B = fetch_data(adress1, adress2)
                 holder = operador.soma(A, B)
@@ -133,7 +142,7 @@ def main():
                 holder = operador.div(A, B)
                 linha_de_comando += 1
 
-            # Fluxo
+            # Operações de Fluxo
             case "JUMP":
                 linha_de_comando = int(adress1, 2)
             case "JPIE":
@@ -159,14 +168,10 @@ def main():
                 print(f"Invalid command: {comando}")
                 linha_de_comando += 1
         
+        # espera algum tipo de inputentre cada operação. Remover na versão final
         step = input('')
 
 
-
+# força a execução da função main. Não é necessário em C
 if __name__ == "__main__":
     main()
-
-
-
-# verificar se a memória está funcionando
-# criar uma variável q serve de controle para em qual linha de comando estamos
