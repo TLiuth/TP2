@@ -13,9 +13,9 @@ Os comandos de manipulação das memórias:
 
 1  [ STRS | ] Armazena no adress1 o valor DE adress2
 2  [ STHR | ] Armazena no adress1 o valor em holder
-3  [ STME | ] Guarda na memória do adress3 (MEMÓRIA) o valor em adress1 (REGISTRADOR)
+3  [ STME | ] Guarda o valor apontado em adress1 (REGISTRADOR) na memória apontada pelo adress3 (REGISTRADOR) (quem, e pra onde)
 4  [ GETR | ] Carrega para o holder o valor em adress1 (REGISTRADOR) #Provavelmente não será necessário
-5  [ LOAD | ] Carrega da memória para o adress3 (REGISTRADOR) o valor em adress1 (MEMÓRIA)
+5  [ LOAD | ] Carrega da memória para o adress1 (REGISTRADOR) o valor da memória apontada por adress3 (REGISTRADOR) (quem, e de onde)
 
 ***************************************
 Os comandos de operação aritmética:

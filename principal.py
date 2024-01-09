@@ -17,19 +17,19 @@ def display(reg, mem, comandos, linha_de_comando):
         print(f"| {i:2} | {reg[i]} | ( {int(reg[i], 2)} )")
     print("+-----------------+")
 
-    # print("\n+-----------------+")
-    # print("|     MEMÓRIA     |")
-    # print("+-----------------+")
-    # for i in range(0, 10):
-    #     print(f"| {i:2} | {mem[i]} | ( {int(mem[i], 2)} )")
+    print("\n+-----------------+")
+    print("|     MEMÓRIA     |")
+    print("+-----------------+")
+    for i in range(0, 10):
+        print(f"| {i:2} | {mem[i]} | ( {int(mem[i], 2)} )")
     print("+-----------------+")
 
-    print("\n+-----------------+")
-    print("|    COMANDOS     |")
-    print("+-----------------+")
-    for chave, comando in comandos.items():
-        print(f"| {chave:2} | {comando} |")
-    print("+-----------------+")
+    # print("\n+-----------------+")
+    # print("|    COMANDOS     |")
+    # print("+-----------------+")
+    # for chave, comando in comandos.items():
+    #     print(f"| {chave:2} | {comando} |")
+    # print("+-----------------+")
 
     print(f"\nCurrent command line: {linha_de_comando}")
 
@@ -60,8 +60,9 @@ def le_comandos(file_path):
     with open(file_path, 'r') as file:
         lines = file.readlines()
 
-    # Remove empty spaces from each line
-    lines = [line.replace(" ", "") for line in lines]
+    # Remove tabs ou espaços de cada linha
+    lines = [line.replace("\t", "").replace(" ", "") for line in lines]
+
     # Remove o caracter de nova linha
     lines = [line.strip() for line in lines]
 
@@ -99,7 +100,7 @@ def main():
 
             # Memória
             case "STME":
-                mem[int(adress3, 2)] = reg[int(adress1, 2)]
+                mem[int(reg[int(adress3, 2)], 2)] = reg[int(adress1, 2)]
                 linha_de_comando += 1
             case "STRS":
                 reg[int(adress1, 2)] = adress2
@@ -111,7 +112,7 @@ def main():
                 holder = reg[int(adress1, 2)]
                 linha_de_comando += 1
             case "LOAD":
-                reg[int(adress3, 2)] = mem[int(adress1, 2)]
+                reg[int(adress1, 2)] =  mem[int(reg[int(adress3, 2)], 2)]
                 linha_de_comando += 1
 
             # Aritméticos
