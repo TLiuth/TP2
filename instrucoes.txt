@@ -31,6 +31,6 @@ Os comandos de operações de fluxo
 11 [ JPIE | ] Pula para a linha de adress3 caso o valor adress1 seja igual ao em adress2
 12 [ JPIG | ] Pula para a linha de adress3 caso o valor em adress1 seja maior que o em adress2
 13 [ PRNT | ] Imprime o valor armazenado em adress1
-14 [|]
+14 [ ]
 15 [|]
 16 [ END_ | ] Encerra todos os comandos

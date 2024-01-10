@@ -1,4 +1,4 @@
-
+from math import ceil
 
 class Operacoes():
     def __init__(self):
@@ -42,10 +42,9 @@ class Operacoes():
         A = int(A, 2)
         B = int(B, 2)
 
-        
-
-        div = bin(int(A/B))[2:].zfill(8)
+        div = bin(ceil(A%B))[2:].zfill(8)
         return div
+    
     
     @staticmethod
     def jpie(A, B):
@@ -63,3 +62,5 @@ class Operacoes():
 
         if(A > B): return True
         else: return False
+
+    

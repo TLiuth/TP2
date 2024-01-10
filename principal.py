@@ -1,5 +1,6 @@
 from registradores import Registradores, Memoria
 from operacoes import Operacoes
+import time
 
 # faz uma instância da classe Memória. Em seguida, atribui o dicionário contido nessa classe para uma nova variável
 memoria = Memoria()
@@ -12,6 +13,7 @@ reg = Registradores().reg
 
 #imprime os valores atuais dos registradores e a lista de comandos, para fins de depuração
 def display(reg, mem, comandos, linha_de_comando):
+    return
     print("\n ******************************************************")
     print("+-----------------+")
     print("|  REGISTRADORES  |")
@@ -23,7 +25,7 @@ def display(reg, mem, comandos, linha_de_comando):
     print("\n+-----------------+")
     print("|     MEMÓRIA     |")
     print("+-----------------+")
-    for i in range(0, 10):
+    for i in range(0, 5):
         print(f"| {i:2} | {mem[i]} | ( {int(mem[i], 2)} )")
     print("+-----------------+")
 
@@ -80,8 +82,9 @@ def le_comandos(file_path):
 # Função principal, que executa o script
 def main():
 
+    cont = 10
 
-    op = input("Choose operation 1 or 2: ")
+    op = input("Choose operation 1, 2 or 3: ")
     
     if op == "1": 
         comandos = le_comandos('comandos.txt')
@@ -111,7 +114,7 @@ def main():
 
             # Operações de manipulação de Memória
             case "STME":
-                print(f"Armazenando em memória {(int(reg[int(adress3, 2)], 2))}")
+                # print(f"Armazenando em memória {(int(reg[int(adress3, 2)], 2))}")
                 mem[int(reg[int(adress3, 2)], 2)] = reg[int(adress1, 2)]
                 linha_de_comando += 1
             case "STRS":
@@ -155,7 +158,7 @@ def main():
                 else:
                     linha_de_comando += 1
             case "PRNT":
-                print(f"Valor armazenado no endereço {int(adress1, 2)} : {reg[int(adress1, 2)]} = ({int(reg[int(adress1, 2)], 2)})")
+                print(f" {reg[int(adress1, 2)]} = ({int(reg[int(adress1, 2)], 2)})")
                 linha_de_comando += 1
             case "JPIG":
                 A, B = fetch_data(adress1, adress2)
@@ -165,7 +168,7 @@ def main():
                     linha_de_comando += 1
             case "END_":
                 print("FIM DO SCRIPT")
-                linha_de_comando += 1
+                linha_de_comando += 1000
                 break
             case "FILL":
                 linha_de_comando += 1
@@ -174,8 +177,10 @@ def main():
                 print(f"Invalid command: {comando}")
                 linha_de_comando += 1
         
+        if(int(reg[5], 2) == 101): cont -= 1
+        # if(cont == 0): break
         # espera algum tipo de inputentre cada operação. Remover na versão final
-        step = input('')
+        # step = input('')
 
 
 # força a execução da função main. Não é necessário em C
