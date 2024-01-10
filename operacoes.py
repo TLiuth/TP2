@@ -42,7 +42,9 @@ class Operacoes():
         A = int(A, 2)
         B = int(B, 2)
 
-        div = bin(A/B)[2:].zfill(8)
+        
+
+        div = bin(int(A/B))[2:].zfill(8)
         return div
     
     @staticmethod

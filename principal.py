@@ -87,6 +87,8 @@ def main():
         comandos = le_comandos('comandos.txt')
     elif op == "2":
         comandos = le_comandos('comandos2.txt')
+    elif op == "3":
+        comandos = le_comandos('primos.txt')
 
     #define o início da linha de comando como 0 (é o que controla qual comando será executado em cada ciclo. Pode ser alterado por algumas das funções de fluxo)
     linha_de_comando = 0
@@ -109,6 +111,7 @@ def main():
 
             # Operações de manipulação de Memória
             case "STME":
+                print(f"Armazenando em memória {(int(reg[int(adress3, 2)], 2))}")
                 mem[int(reg[int(adress3, 2)], 2)] = reg[int(adress1, 2)]
                 linha_de_comando += 1
             case "STRS":
@@ -164,6 +167,9 @@ def main():
                 print("FIM DO SCRIPT")
                 linha_de_comando += 1
                 break
+            case "FILL":
+                linha_de_comando += 1
+                pass
             case _:
                 print(f"Invalid command: {comando}")
                 linha_de_comando += 1
