@@ -14,23 +14,23 @@ Os comandos de manipulação das memórias:
 1  [ STRS | ] Armazena no adress1 o valor DE adress2
 2  [ STHR | ] Armazena no adress1 o valor em holder
 3  [ STME | ] Guarda o valor apontado em adress1 (REGISTRADOR) na memória apontada pelo adress3 (REGISTRADOR) (quem, e pra onde)
-4  [ GETR | ] Carrega para o holder o valor em adress1 (REGISTRADOR) #Provavelmente não será necessário
-5  [ LOAD | ] Carrega da memória para o adress1 (REGISTRADOR) o valor da memória apontada por adress3 (REGISTRADOR) (quem, e de onde)
+4  [ LOAD | ] Carrega da memória para o adress1 (REGISTRADOR) o valor da memória apontada por adress3 (REGISTRADOR) (quem, e de onde)
 
 ***************************************
 Os comandos de operação aritmética:
 
-6  [ ADD_ | ] Adiciona os valores dos endereços adress1 e adress2 (REGISTRADORES) e joga para o holder
-7  [ SUB_ | ] Subtrai os valores dos endereços adress1 e adress2 (1 - 2) (REGISTRADORES) e joga para o holder
-8  [ MULT | ] Multiplica os endereços adress1 e adress2 (REGISTRADORES) e joga para o holder
+5  [ ADD_ | ] Adiciona os valores dos endereços adress1 e adress2 (REGISTRADORES) e joga para o holder
+6  [ SUB_ | ] Subtrai os valores dos endereços adress1 e adress2 (1 - 2) (REGISTRADORES) e joga para o holder
+7  [ MULT | ] Multiplica os endereços adress1 e adress2 (REGISTRADORES) e joga para o holder
+9  [ RMND | ] Pega o resto inteiro da divisão (A%B) (REGISTRADORES), arredonda para cima e joga para o holder
 9  [ DIV_ | ] Divide o valor do endereço adress1 pelo de adress2 (A/B) (REGISTRADORES) e joga para o holder
+10 [ POW_ | ] Eleva o valor armazenado em adress1 ao valor elevado em adress2 e joga para o holder
+11 [ FAC_ | ] Faz o fatorial do número armazenado em adress1 e joga para o holder
 
 ***************************************
 Os comandos de operações de fluxo
-10 [ JUMP | ] Pula para a linha do endereço 1
-11 [ JPIE | ] Pula para a linha de adress3 caso o valor adress1 seja igual ao em adress2
-12 [ JPIG | ] Pula para a linha de adress3 caso o valor em adress1 seja maior que o em adress2
-13 [ PRNT | ] Imprime o valor armazenado em adress1
-14 [ ]
-15 [|]
+12 [ JUMP | ] Pula para a linha do endereço 1
+13 [ JPIE | ] Pula para a linha de adress3 caso o valor adress1 seja igual ao em adress2
+14 [ JPIG | ] Pula para a linha de adress3 caso o valor em adress1 seja maior que o em adress2
+15 [ PRNT | ] Imprime o valor armazenado em adress1
 16 [ END_ | ] Encerra todos os comandos
